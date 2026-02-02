@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Operations</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            font-family: Arial;
+        }
+
+        .big-container {
+            width: 420px;
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        .container {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        input {
+            width: 120px;
+            padding: 6px;
+            margin: 5px;
+            border: 1px solid black;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: 1px solid black;
+            font-size: 15px;
+            cursor: pointer;
+            background: none;
+        }
+
+        .result {
+            font-size: 18px;
+            margin-top: 10px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .success {
+            margin-top: 5px;
+            border: 1px solid black;
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="big-container">
+
+    <!-- Container 1 -->
+    <div class="container">
+        <h3>Input Values</h3>
+        <input type="number" id="a" placeholder="Enter A">
+        <input type="number" id="b" placeholder="Enter B">
+    </div>
+
+    <!-- Container 2 -->
+    <div class="container">
+        <h3>Operations</h3>
+        <button onclick="calculate('add')">Add</button>
+        <button onclick="calculate('sub')">Subtract</button>
+        <button onclick="calculate('mul')">Multiply</button>
+        <button onclick="calculate('div')">Divide</button>
+    </div>
+
+    <!-- Container 3 -->
+    <div class="container">
+        <h3>Result</h3>
+        <div class="result" id="result">Result: --</div>
+        <div class="success" id="message"></div>
+    </div>
+
+</div>
+
+<script>
+    function calculate(operation) {
+        let a = Number(document.getElementById("a").value);
+        let b = Number(document.getElementById("b").value);
+        let res;
+
+        if (operation === "add") res = a + b;
+        else if (operation === "sub") res = a - b;
+        else if (operation === "mul") res = a * b;
+        else if (operation === "div") res = b !== 0 ? a / b : "Cannot divide by zero";
+
+        document.getElementById("result").innerText = "Result: " + res;
+        document.getElementById("message").innerText = "Task executed successfully";
+    }
+</script>
+
+</body>
+</html>
